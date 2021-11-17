@@ -19,8 +19,8 @@ module.exports = function () {
     /* App (Android, iOS) */
     // TODO: 도메인을 추가할 경우 이곳에 Route를 추가하세요.
     require('../src/User/userRoute')(app);
-    require('../src/Auth/authRoute')(app);
-    require('../src/Product/productRoute')(app);
+    // require('../src/Auth/authRoute')(app);
+    // require('../src/Product/productRoute')(app);
 
     return app;
 };

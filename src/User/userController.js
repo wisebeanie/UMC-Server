@@ -21,13 +21,17 @@ exports.postUsers = async function(req, res) {
 
     // 형식적 validation (값 존재 유무, 길이, 형식)
     if (!phoneNumber) {
-        
+        return res.send(errResponse(baseResponse.SIGNUP_PHONENUMBER_EMPTY));
+    }
+    else if (phoneNumber.length > 11) {
+        return res.send(errResponse(baseResponse.SUCCESS));
     }
 
     // create -> Service에서 처리
+    const signUpResponse = await userService.createUser(phoneNumber);
 
     // response return
-    return res.send(response());
+    return res.send(signUpResponse);
 };
 
 
